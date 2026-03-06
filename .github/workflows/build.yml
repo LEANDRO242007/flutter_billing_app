@@ -1,7 +1,7 @@
 name: Compilar App de Facturacion
 
 on:
-  workflow_dispatch: # Esto te permite ejecutar el proceso manualmente con un boton
+  workflow_dispatch:
 
 jobs:
   build:
@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Clonar el codigo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar entorno Flutter
         uses: subosito/flutter-action@v2
@@ -26,7 +26,7 @@ jobs:
         run: flutter build apk --release
 
       - name: Guardar el APK para descargar
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: App_Facturacion_POS
           path: build/app/outputs/flutter-apk/app-release.apk
